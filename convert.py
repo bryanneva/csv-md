@@ -2,11 +2,11 @@ import csv
 import os
 
 
-def convert():
+def convert(filename):
     if not os.path.exists('out'):
         os.mkdir('out')
 
-    with open('fisma-moderate-sp800-53-status.csv', newline='') as csv_file:
+    with open(filename, newline='') as csv_file:
         nist_controls = csv.reader(csv_file, delimiter=',')
         for control in nist_controls:
             status = build_status(control)
